@@ -8,11 +8,6 @@ HungaromojiRetró is a forked version of the original Hungaromoji,
 designed specifically for our Windows 98 Web Simulator Beta. 
 Interested in contributing? Join us and help improve the simulator!
 
---- FIGYELMEZTETÉS ---
-A HungaromojiRetró a eredeti Hungaromoji egy módosított változata,
-kifejezetten a Windows 98 Web Simulator Beta számára készült.
-Szeretnél hozzájárulni? Csatlakozz, és segíts fejleszteni a szimulátort!
-
 ────────────────────────────────────────────
 Emoji Assets:
 • Original emoji artwork and base assets © Penguinmod.com — MIT License.
@@ -48,8 +43,12 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
 ────────────────────────────────────────────
 */
 
-
 (function() {
+    // New Constants for the Metro Easter Egg
+    const METRO_EMOJI = "🚇";
+    const METRO_SOUND_URL = "https://files.catbox.moe/jsf4ho.ogg"; // Ganz MFAV sound
+    const METRO_WIKIPEDIA_URL = "https://hu.wikipedia.org/wiki/Ganz_MFAV";
+
     // Variables using modern 'const' for better code quality
     const emojiMap = {
         "👩": "https://library.penguinmod.com/files/emojis/woman.png",
@@ -59,7 +58,7 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         "💀": "https://library.penguinmod.com/files/emojis/skull.png",
         "😀": "https://library.penguinmod.com/files/emojis/animatedsmile.png",
         "😭": "https://library.penguinmod.com/files/emojis/sobbing.png",
-        "💻": "https://library.penguinmod.com/files/emojis/laptop.png",
+        "💻": "https://urbanmove8.neocities.org/emojis/retro/ibmthinkpad770.png",
         "🎉": "https://library.penguinmod.com/files/emojis/tada.png",
         "🥳": "https://library.penguinmod.com/files/emojis/party.png",
         "🚗": "https://urbanmove8.neocities.org/emojis/suzukiswift.png",
@@ -103,7 +102,7 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         // "BPIM3": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/BKV_m_3_jms.svg/800px-BKV_m_3_jms.svg.png",
         // "BPIM4": "https://urbanmove8.neocities.org/kekhegy/kepek/metro4.png",
         /* Due to issues with BKK, we need to ask their permission to use those :( */
-        "🚇": "https://urbanmove8.neocities.org/kekhegy/kepek/budapestim3asmetroszerelveny.png",
+        "🚇": "https://urbanmove8.neocities.org/emojis/retro/ganzmfav.png",
         "💶": "https://urbanmove8.neocities.org/emojis/stackedeuros.png",
         "💵": "https://urbanmove8.neocities.org/emojis/stackeddollars.png",
         "💴": "https://urbanmove8.neocities.org/emojis/stackedyens.png",
@@ -135,7 +134,7 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         "🎆": "https://urbanmove8.neocities.org/kekhegy/kepek/szntistvannapjatuzijatekok.png",
         "📰": "https://urbanmove8.neocities.org/kekhegy/kepek/magyarnemzetujsagutolso.png",
         "😂": "https://library.penguinmod.com/files/emojis/laughing.png",
-        "🚓": "https://urbanmove8.neocities.org/emojis/rendorseg.png",
+        "🚓": "https://urbanmove8.neocities.org/emojis/retro/rendorauto1998.png",
         "😊": "https://library.penguinmod.com/files/emojis/blush.png",
         "🤠": "https://library.penguinmod.com/files/emojis/cowboy.png",
         "🍔": "https://library.penguinmod.com/files/emojis/burger.png",
@@ -288,7 +287,7 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         "☕": "https://urbanmove8.neocities.org/emojis/bogre.png",
         "🚥": "https://urbanmove8.neocities.org/emojis/trafficlightvertical.png",
         "🚍": "https://urbanmove8.neocities.org/emojis/induloikarus260.png",
-        "🚘": "https://urbanmove8.neocities.org/emojis/indulosuzuki.png",
+        "🚘": "https://urbanmove8.neocities.org/emojis/retro/indulosuzuki1998.png",
         "⏩": "https://urbanmove8.neocities.org/emojis/fastforward.png",
         "⏪": "https://urbanmove8.neocities.org/emojis/fastrewind.png",
         "↕️": "https://urbanmove8.neocities.org/emojis/updownarrow.png",
@@ -298,11 +297,11 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         "↖️": "https://urbanmove8.neocities.org/emojis/arrowupleft.png",
         "↗️": "https://urbanmove8.neocities.org/emojis/arrowupright.png",
         "▶️": "https://urbanmove8.neocities.org/emojis/play.png",
-        "🚔": "https://urbanmove8.neocities.org/emojis/indulorendorauto.png",
+        "🚔": "https://urbanmove8.neocities.org/emojis/retro/indulorendorauto1998.png",
         "🚖": "https://urbanmove8.neocities.org/emojis/indulotaxi.png",
         "🚕": "https://urbanmove8.neocities.org/emojis/taxi.png",
         "🚊": "https://urbanmove8.neocities.org/emojis/tatravillamos.png",
-        "🚃": "https://urbanmove8.neocities.org/emojis/vasutikocsi.png",
+        "🚃": "https://urbanmove8.neocities.org/emojis/retro/bdkocsi.png",
         "🏎️": "https://urbanmove8.neocities.org/emojis/mclarenf1.png",
         "💦": "https://urbanmove8.neocities.org/emojis/cseppek.png",
         "🩸": "https://urbanmove8.neocities.org/emojis/ver.png",
@@ -398,16 +397,21 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         "🦢": "https://urbanmove8.neocities.org/emojis/hattyu.png",
         "🦆": "https://urbanmove8.neocities.org/emojis/vadkacsak.png",
         "⏸️": "https://urbanmove8.neocities.org/emojis/pause.png",
+        "👮": "https://urbanmove8.neocities.org/emojis/rendor_rendorno.png",
+        "🧑‍✈️": "https://urbanmove8.neocities.org/emojis/pilota_pilotano.png",
     };
 
+    // Existing Hungarian Easter Egg Constants
     const SECRET_HUNGARIAN_MESSAGE_TITLE = "1956. Október 23. - Forradalom";
     const SECRET_HUNGARIAN_EMOJI_SAGA_1956 = "🇭🇺 Szabadság és függetlenség! 1956. október 23. A forradalom lángja fellobbant a kommunista zsarnokság ellen. Budapest és a nemzet felkiáltott.️ A szovjet tankok eltiporták az ellenállást, de a lélek nem tört meg.️ Több mint 2500 magyar áldozat halt meg.😞💔 Emlékezzünk a hősökre, akiket a megtorlás kivégzett: Nagy Imre (miniszterelnök) 👨‍⚖️, Maléter Pál (honvédelmi miniszter) 🎖️, Gimes Miklós (újságíró) ✍️, Losonczy Géza (államminiszter) 🏛️, Mansfeld Péter (a legfiatalabb mártír) 🧑‍🍼, Tóth Ilona (orvostanhallgató) 👩‍⚕️, Bánátiné 👵, Lukács Pál 👨‍🌾, Gyöngyösi Miklós 🧑‍🎓, és a Corvin köz 'pesti srácai' 🧑. Tisztelet a Mártíroknak! 🙏 Az '56-os szellem örökké él.";
-
     const EASTER_EGG_DAY = 23;
     const EASTER_EGG_MONTH = 9; // October (0-indexed)
 
     // --- UTILITY FUNCTIONS ---
 
+    /**
+     * Finds the correct URL for an emoji, checking for the October 23rd flag.
+     */
     function getEmojiUrl(emojiMatch) {
         if (emojiMatch === "🇭🇺") {
             const today = new Date();
@@ -418,6 +422,9 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         return emojiMap[emojiMatch] || null;
     }
 
+    /**
+     * Executes the custom simulator functions for the 1956 Easter Egg.
+     */
     function triggerSecretMessageBox() {
         if (typeof playSound === 'function') {
             playSound('ding');
@@ -425,37 +432,63 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         
         if (typeof showMessageBox === 'function') {
              showMessageBox({
-                title: SECRET_HUNGARIAN_MESSAGE_TITLE,
-                message: SECRET_HUNGARIAN_EMOJI_SAGA_1956,
-                icon: 'info', 
-                buttons: ['OK']
-            });
+                 title: SECRET_HUNGARIAN_MESSAGE_TITLE,
+                 message: SECRET_HUNGARIAN_EMOJI_SAGA_1956,
+                 icon: 'info', 
+                 buttons: ['OK']
+             });
         }
     }
+    
+    /**
+     * 🚇 NEW: Handles the Ganz MFAV Metro Easter Egg logic.
+     */
+    function handleMetroEasterEgg(imgElement) {
+        // 1. Sound effect on mouse hover
+        const audio = new Audio(METRO_SOUND_URL);
+        
+        imgElement.title = "Ganz MFAV: Hold Ctrl + Click to learn more!";
+        imgElement.style.cursor = 'pointer';
+
+        // Play the sound on mouseover (hover)
+        imgElement.addEventListener('mouseover', () => {
+            // Check if the sound is already playing or about to play to prevent spamming
+            if (audio.paused) {
+                audio.currentTime = 0; // Rewind to start
+                audio.play().catch(e => console.error("Error playing metro sound:", e));
+            }
+        });
+        
+        // Stop/pause the sound on mouseout, maybe
+        // imgElement.addEventListener('mouseout', () => {
+        //     audio.pause();
+        // });
+
+        // 2. Ctrl+Click to open the Wikipedia page
+        imgElement.addEventListener('click', (event) => {
+            if (event.ctrlKey || event.metaKey) { // Check for Ctrl (Windows/Linux) or Cmd (Mac)
+                event.preventDefault(); // Stop any default action
+                window.open(METRO_WIKIPEDIA_URL, '_blank'); // Open in a new tab
+            }
+        });
+    }
+
 
     /**
-     * 🌟 REVISED: Applies aggressive CSS filters to force a low-color/rastered look.
-     * This simulates the limited 256-color palette (8-bit, 16-bit was 65,536 colors, but 256 is the iconic low-color look).
+     * 🌟 NEW: Applies CSS filters to simulate 16-bit low-fidelity graphics.
      */
     function applyOldSchoolImageStyles(imgElement) {
-        // 1. Force sharp, pixelated edges
-        imgElement.style.imageRendering = 'pixelated';
-        
-        // 2. Adjust size slightly higher to make the pixels more visible
-        imgElement.style.width = '1.1em';
-        imgElement.style.height = '1.1em';
-
-        // 3. Apply harsh color filters to simulate limited palette and dither/raster effect
-        // Grayscale reduces color information, then contrast boosts the difference, simulating "banding."
-        imgElement.style.filter = 'grayscale(20%) contrast(1.5) brightness(1.1) saturate(1.8) hue-rotate(5deg)';
-        
-        // 4. Subtle Windows 98 3D element styling
-        imgElement.style.border = '1px solid #c0c0c0';
-        imgElement.style.boxShadow = '1px 1px 0px 0px #808080'; 
+        imgElement.style.imageRendering = 'pixelated'; // Keeps sharp edges
+        imgElement.style.filter = 'saturate(0.9) brightness(1.1) contrast(1.2) sepia(0.05)';
+        imgElement.style.border = '1px solid #c0c0c0'; // subtle border effect
+        imgElement.style.boxShadow = '1px 1px 0px 0px #808080'; // classic 90s shadow
+        // Optional: you can add a class here for a CRT scanline effect if you have it defined elsewhere
+        // imgElement.classList.add('crt-scanline-effect'); 
     }
 
     // --- REGEX SETUP ---
-    const sortedEmojiKeys = Object.keys(emojiMap).sort((a, b) => b.length - a.length);
+    const allEmojiMap = { ...emojiMap, "🇭🇺": null }; // Include Hungarian flag for regex
+    const sortedEmojiKeys = Object.keys(allEmojiMap).sort((a, b) => b.length - a.length);
     
     const escapedKeys = sortedEmojiKeys.map(key => {
         const escapedKey = key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -485,6 +518,10 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
                     next = child.nextSibling;
                     walk(child);
                     child = next;
+                    // Important check for when replaceChild happens
+                    if(child && child.previousSibling && child.previousSibling.nodeType !== 3) {
+                       child = next;
+                    }
                 }
                 break;
             case 3:
@@ -518,10 +555,12 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
                     const img = document.createElement('img');
                     img.src = imageUrl;
                     img.alt = matchString; 
+                    img.style.width = '1em';
+                    img.style.height = '1em';
                     img.style.verticalAlign = 'middle';
                     img.style.display = 'inline';
                     
-                    // Apply REVISED 16-bit style effects here!
+                    // Apply 16-bit style effects here!
                     applyOldSchoolImageStyles(img);
 
                     img.onerror = function() { 
@@ -529,8 +568,12 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
                         this.onerror = null;
                     };
 
-                    // 🌟 EASTER EGG LOGIC (🇭🇺 Flag) 🌟
-                    if (matchString === "🇭🇺") {
+                    // 🚇 NEW METRO EASTER EGG IMPLEMENTATION 🚇
+                    if (matchString === METRO_EMOJI) {
+                        handleMetroEasterEgg(img);
+                    }
+                    // 🌟 EXISTING HUNGARIAN FLAG EASTER EGG LOGIC (🇭🇺 Flag) 🌟
+                    else if (matchString === "🇭🇺") {
                         const today = new Date();
                         const isOctober23 = today.getMonth() === EASTER_EGG_MONTH && today.getDate() === EASTER_EGG_DAY;
 
@@ -571,7 +614,6 @@ the License is provided “AS IS”, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIN
         style.type = 'text/css';
         style.textContent = `
              /* --- GENERAL STYLES --- */
-             /* The CSS list styles are kept as they clean up the appearance of emojis in lists */
              .sc-list-item,
              .sc-menu-item,
              .sc-dropdown-item,
